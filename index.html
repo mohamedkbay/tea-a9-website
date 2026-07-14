@@ -13,6 +13,33 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- ===== BACKGROUND VIDEO ===== -->
+  <div class="video-bg-wrapper">
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="AQMoEbWsft4021DveXgcpURhOkCVtlr4yWgKb7seOp8wlUKJtWrwt7D9NVdm8CQ4OIGKOtvZHRIyaCJLmyzM9bjFEJkuT0YFvSBtIp8.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo-wrapper">
+        <div class="loading-glow-ring"></div>
+        <div class="loading-logo">
+          <img src="assets/logo.png" alt="Loading...">
+        </div>
+      </div>
+      <div class="loading-text">
+        <span class="loading-brand">Tea at 9</span>
+        <span class="loading-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== NAV ===== -->
   <header class="nav" id="nav">
@@ -20,16 +47,24 @@
       <img src="assets/logo.png" alt="Tea at 9 – Bubble Tea & Co." class="brand-logo">
     </a>
     <nav class="nav-links" id="navLinks" aria-label="Hauptnavigation">
-      <a href="#menu">Menü</a>
-      <a href="#why">Über uns</a>
-      <a href="#toppings">Toppings</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="#menu" data-i18n="nav.menu">Menü</a>
+      <a href="#why" data-i18n="nav.about">Über uns</a>
+      <a href="#toppings" data-i18n="nav.toppings">Toppings</a>
+      <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
     </nav>
     <div class="nav-right">
       <a href="#menu" class="cart-btn" aria-label="Bestellen">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       </a>
-      <a href="#kontakt" class="btn btn-brown nav-cta">Jetzt bestellen</a>
+      <button class="lang-switcher" id="langSwitcher" aria-label="Switch Language">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20"/>
+          <path d="M12 2c3 3 4.5 7 4.5 10s-1.5 7-4.5 10c-3-3-4.5-7-4.5-10S9 5 12 2z"/>
+        </svg>
+        <span id="currentLang">DE</span>
+      </button>
+      <a href="#kontakt" class="btn btn-brown nav-cta" data-i18n="nav.order">Jetzt bestellen</a>
       <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
   </header>
@@ -38,17 +73,17 @@
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-text" data-aos="fade-right">
-      <p class="hero-eyebrow">🧋 Zum verlieben lecker!</p>
-      <h1>Echter Bubble&nbsp;Tea,<br><span class="italic">frisch für dich gemixt.</span></h1>
-      <p>Über 20 Sorten aus grünem, schwarzem &amp; Oolong Tee – mit frischen Tapioka-Perlen, jeden Tag von Hand gemacht in Stendal &amp; Magdeburg.</p>
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">🧋 Zum verlieben lecker!</p>
+      <h1 data-i18n="hero.title">Echter Bubble&nbsp;Tea,<br><span class="italic">frisch für dich gemixt.</span></h1>
+      <p data-i18n="hero.desc">Über 20 Sorten aus grünem, schwarzem &amp; Oolong Tee – mit frischen Tapioka-Perlen, jeden Tag von Hand gemacht in Stendal &amp; Magdeburg.</p>
       <div class="hero-btns">
-        <a href="#menu" class="btn btn-brown">Menü ansehen</a>
-        <a href="#kontakt" class="btn btn-outline">Standort finden</a>
+        <a href="#menu" class="btn btn-brown" data-i18n="hero.btn.menu">Menü ansehen</a>
+        <a href="#kontakt" class="btn btn-outline" data-i18n="hero.btn.location">Standort finden</a>
       </div>
       <div class="hero-stats">
-        <div><strong>20+</strong><span>Sorten</span></div>
-        <div><strong>2</strong><span>Standorte</span></div>
-        <div><strong>100%</strong><span>frisch gemacht</span></div>
+        <div><strong>20+</strong><span data-i18n="hero.stats.varieties">Sorten</span></div>
+        <div><strong>2</strong><span data-i18n="hero.stats.locations">Standorte</span></div>
+        <div><strong>100%</strong><span data-i18n="hero.stats.fresh">frisch gemacht</span></div>
       </div>
     </div>
     <div class="hero-media" data-aos="fade-left">
@@ -62,39 +97,39 @@
   <!-- ===== MENU ===== -->
   <section class="section" id="menu">
     <div class="head" data-aos="fade-up">
-      <p class="eyebrow">Unser Menü</p>
-      <h2>Unsere Beliebtesten</h2>
+      <p class="eyebrow" data-i18n="menu.eyebrow">Unser Menü</p>
+      <h2 data-i18n="menu.title">Unsere Beliebtesten</h2>
     </div>
 
     <div class="filters" id="filters">
-      <button class="pill active" data-cat="all">Alle</button>
-      <button class="pill" data-cat="milk">Milk Tea</button>
-      <button class="pill" data-cat="fruit">Fruchttee</button>
-      <button class="pill" data-cat="special">Specials</button>
+      <button class="pill active" data-cat="all" data-i18n="menu.filter.all">Alle</button>
+      <button class="pill" data-cat="milk" data-i18n="menu.filter.milk">Milk Tea</button>
+      <button class="pill" data-cat="fruit" data-i18n="menu.filter.fruit">Fruchttee</button>
+      <button class="pill" data-cat="special" data-i18n="menu.filter.special">Specials</button>
     </div>
 
     <div class="products" id="products">
       <article class="product" data-cat="milk" data-aos="fade-up">
         <div class="product-img img-ph" data-label="🧋 Produktfoto">
-          <span class="badge">Bestseller</span>
+          <span class="badge" data-i18n="product.1.badge">Bestseller</span>
           <img src="assets/product-1.jpg" alt="Erdbeer Sahne Bubble Tea" onerror="this.remove()">
         </div>
         <div class="product-body">
-          <h3>Erdbeer Sahne</h3>
-          <p>Frische Erdbeeren, cremige Milchhaube &amp; Perlen.</p>
-          <div class="product-foot"><span class="price">4,50 €</span><button class="add" aria-label="Hinzufügen">+</button></div>
+          <h3 data-i18n="product.1.name">Erdbeer Sahne</h3>
+          <p data-i18n="product.1.desc">Frische Erdbeeren, cremige Milchhaube &amp; Perlen.</p>
+          <div class="product-foot"><span class="price">4,50 €</span><button class="add" aria-label="Hinzufügen" data-i18n-aria="product.add">+</button></div>
         </div>
       </article>
 
       <article class="product" data-cat="milk" data-aos="fade-up" data-aos-delay="80">
         <div class="product-img img-ph" data-label="🧋 Produktfoto">
-          <span class="badge">Bestseller</span>
+          <span class="badge" data-i18n="product.2.badge">Bestseller</span>
           <img src="assets/product-2.jpg" alt="Taro Spekulatius Bubble Tea" onerror="this.remove()">
         </div>
         <div class="product-body">
-          <h3>Taro Spekulatius</h3>
-          <p>Samtiger Taro mit Spekulatius-Crunch &amp; Tapioka.</p>
-          <div class="product-foot"><span class="price">4,50 €</span><button class="add" aria-label="Hinzufügen">+</button></div>
+          <h3 data-i18n="product.2.name">Taro Spekulatius</h3>
+          <p data-i18n="product.2.desc">Samtiger Taro mit Spekulatius-Crunch &amp; Tapioka.</p>
+          <div class="product-foot"><span class="price">4,50 €</span><button class="add" aria-label="Hinzufügen" data-i18n-aria="product.add">+</button></div>
         </div>
       </article>
 
@@ -103,21 +138,21 @@
           <img src="assets/product-3.jpg" alt="Blaubeer-Erdbeer Fruchttee" onerror="this.remove()">
         </div>
         <div class="product-body">
-          <h3>Beeren Traum</h3>
-          <p>Fruchtiger Tee mit Blaubeeren, Erdbeere &amp; Boba.</p>
-          <div class="product-foot"><span class="price">4,20 €</span><button class="add" aria-label="Hinzufügen">+</button></div>
+          <h3 data-i18n="product.3.name">Beeren Traum</h3>
+          <p data-i18n="product.3.desc">Fruchtiger Tee mit Blaubeeren, Erdbeere &amp; Boba.</p>
+          <div class="product-foot"><span class="price">4,20 €</span><button class="add" aria-label="Hinzufügen" data-i18n-aria="product.add">+</button></div>
         </div>
       </article>
 
       <article class="product" data-cat="special" data-aos="fade-up" data-aos-delay="240">
         <div class="product-img img-ph" data-label="🧋 Produktfoto">
-          <span class="badge">Neu</span>
+          <span class="badge" data-i18n="product.4.badge">Neu</span>
           <img src="assets/product-4.jpg" alt="Rainbow Butterfly Pea Tea" onerror="this.remove()">
         </div>
         <div class="product-body">
-          <h3>Rainbow Tea</h3>
-          <p>Bunter Butterfly-Pea-Tee – ein Regenbogen im Becher.</p>
-          <div class="product-foot"><span class="price">4,80 €</span><button class="add" aria-label="Hinzufügen">+</button></div>
+          <h3 data-i18n="product.4.name">Rainbow Tea</h3>
+          <p data-i18n="product.4.desc">Bunter Butterfly-Pea-Tee – ein Regenbogen im Becher.</p>
+          <div class="product-foot"><span class="price">4,80 €</span><button class="add" aria-label="Hinzufügen" data-i18n-aria="product.add">+</button></div>
         </div>
       </article>
     </div>
@@ -130,13 +165,13 @@
         <img src="assets/shop.jpg" alt="Tea at 9 Laden in Stendal" onerror="this.remove()">
       </div>
       <div class="why-text" data-aos="fade-left">
-        <p class="eyebrow">Warum Tea at 9?</p>
-        <h2>Frisch gemacht,<br>mit Liebe serviert.</h2>
+        <p class="eyebrow" data-i18n="why.eyebrow">Warum Tea at 9?</p>
+        <h2 data-i18n="why.title">Frisch gemacht,<br>mit Liebe serviert.</h2>
         <ul class="features">
-          <li><h4>Ausgewählte Zutaten</h4><p>Hochwertiger Tee und Zutaten, die wir mit Sorgfalt aussuchen.</p></li>
-          <li><h4>Frische Toppings</h4><p>Tapioka &amp; Toppings täglich frisch gekocht – nie aus der Dose.</p></li>
-          <li><h4>Eigenes Rezept</h4><p>Jeder Becher wird auf Bestellung für dich gemixt.</p></li>
-          <li><h4>Zwei Standorte</h4><p>Besuch uns in Stendal &amp; Magdeburg.</p></li>
+          <li><h4 data-i18n="why.feature.1.title">Ausgewählte Zutaten</h4><p data-i18n="why.feature.1.desc">Hochwertiger Tee und Zutaten, die wir mit Sorgfalt aussuchen.</p></li>
+          <li><h4 data-i18n="why.feature.2.title">Frische Toppings</h4><p data-i18n="why.feature.2.desc">Tapioka &amp; Toppings täglich frisch gekocht – nie aus der Dose.</p></li>
+          <li><h4 data-i18n="why.feature.3.title">Eigenes Rezept</h4><p data-i18n="why.feature.3.desc">Jeder Becher wird auf Bestellung für dich gemixt.</p></li>
+          <li><h4 data-i18n="why.feature.4.title">Zwei Standorte</h4><p data-i18n="why.feature.4.desc">Besuch uns in Stendal &amp; Magdeburg.</p></li>
         </ul>
       </div>
     </div>
@@ -145,30 +180,30 @@
   <!-- ===== REVIEWS (echte Google-Bewertungen) ===== -->
   <section class="section reviews">
     <div class="head" data-aos="fade-up">
-      <p class="eyebrow">Google Bewertungen</p>
-      <h2>Was unsere Gäste sagen</h2>
+      <p class="eyebrow" data-i18n="reviews.eyebrow">Google Bewertungen</p>
+      <h2 data-i18n="reviews.title">Was unsere Gäste sagen</h2>
       <a class="g-rating" href="https://www.google.com/maps/search/Tea+at+9+Stendal+Poststra%C3%9Fe+9" target="_blank" rel="noopener">
         <span class="g-mark"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span>
-        <span class="g-score">4,6</span>
+        <span class="g-score" data-i18n="reviews.score">4,6</span>
         <span class="g-stars">★★★★★</span>
-        <span class="g-count">· 134 Rezensionen</span>
+        <span class="g-count" data-i18n="reviews.count">· 134 Rezensionen</span>
       </a>
     </div>
     <div class="review-grid">
       <blockquote class="review" data-aos="fade-up">
         <div class="stars">★★★★★</div>
-        <p>„Bester Bubble Tea, den ich je getrunken habe! Riesige Auswahl an Sorten – wird nie langweilig. Dazu immer freundlicher, schneller Service.”</p>
-        <footer><span class="av">L</span><span class="who">Laura<em>Google-Rezension</em></span></footer>
+        <p data-i18n="reviews.1.text">„Bester Bubble Tea, den ich je getrunken habe! Riesige Auswahl an Sorten – wird nie langweilig. Dazu immer freundlicher, schneller Service.”</p>
+        <footer><span class="av">L</span><span class="who"><span data-i18n="reviews.1.author">Laura</span><em data-i18n="reviews.1.source">Google-Rezension</em></span></footer>
       </blockquote>
       <blockquote class="review" data-aos="fade-up" data-aos-delay="100">
         <div class="stars">★★★★★</div>
         <p class="emoji-review">😍😍😍😍😍</p>
-        <footer><span class="av">D</span><span class="who">Durra H.<em>Google-Rezension</em></span></footer>
+        <footer><span class="av">D</span><span class="who"><span data-i18n="reviews.2.author">Durra H.</span><em data-i18n="reviews.2.source">Google-Rezension</em></span></footer>
       </blockquote>
       <a class="review review-cta" href="https://www.google.com/maps/search/Tea+at+9+Stendal+Poststra%C3%9Fe+9" target="_blank" rel="noopener" data-aos="fade-up" data-aos-delay="200">
         <div class="stars">★★★★★</div>
-        <p><strong>4,6 von 5</strong> – aus 134 echten Bewertungen unserer Gäste auf Google.</p>
-        <footer><span class="who">Alle Rezensionen ansehen →</span></footer>
+        <p><strong data-i18n="reviews.cta">4,6 von 5</strong><span data-i18n="reviews.cta.desc"> – aus 134 echten Bewertungen unserer Gäste auf Google.</span></p>
+        <footer><span class="who" data-i18n="reviews.cta.link">Alle Rezensionen ansehen →</span></footer>
       </a>
     </div>
   </section>
@@ -176,17 +211,17 @@
   <!-- ===== TOPPINGS ===== -->
   <section class="section toppings" id="toppings">
     <div class="head" data-aos="fade-up">
-      <p class="eyebrow">Extras</p>
-      <h2>Beliebte Toppings</h2>
-      <p class="sub">Mach deinen Bubble Tea zu deinem – über 20 Toppings zur Auswahl.</p>
+      <p class="eyebrow" data-i18n="toppings.eyebrow">Extras</p>
+      <h2 data-i18n="toppings.title">Beliebte Toppings</h2>
+      <p class="sub" data-i18n="toppings.sub">Mach deinen Bubble Tea zu deinem – über 20 Toppings zur Auswahl.</p>
     </div>
     <div class="topping-row">
-      <div class="topping" data-aos="zoom-in"><div class="t-circle sphere sphere-black"><b></b><b></b><b></b></div><span>Schwarze Perlen</span></div>
-      <div class="topping" data-aos="zoom-in" data-aos-delay="70"><div class="t-circle sphere sphere-white"><b></b><b></b><b></b></div><span>Weiße Perlen</span></div>
-      <div class="topping" data-aos="zoom-in" data-aos-delay="140"><div class="t-circle sphere sphere-jelly"></div><span>Frucht-Jelly</span></div>
-      <div class="topping" data-aos="zoom-in" data-aos-delay="210"><div class="t-circle sphere sphere-cheese"></div><span>Käseschaum</span></div>
-      <div class="topping" data-aos="zoom-in" data-aos-delay="280"><div class="t-circle sphere sphere-pudding"></div><span>Pudding</span></div>
-      <div class="topping" data-aos="zoom-in" data-aos-delay="350"><div class="t-circle sphere sphere-popping"><b></b><b></b><b></b></div><span>Popping Boba</span></div>
+      <div class="topping" data-aos="zoom-in"><div class="t-circle sphere sphere-black"><b></b><b></b><b></b></div><span data-i18n="topping.1">Schwarze Perlen</span></div>
+      <div class="topping" data-aos="zoom-in" data-aos-delay="70"><div class="t-circle sphere sphere-white"><b></b><b></b><b></b></div><span data-i18n="topping.2">Weiße Perlen</span></div>
+      <div class="topping" data-aos="zoom-in" data-aos-delay="140"><div class="t-circle sphere sphere-jelly"></div><span data-i18n="topping.3">Frucht-Jelly</span></div>
+      <div class="topping" data-aos="zoom-in" data-aos-delay="210"><div class="t-circle sphere sphere-cheese"></div><span data-i18n="topping.4">Käseschaum</span></div>
+      <div class="topping" data-aos="zoom-in" data-aos-delay="280"><div class="t-circle sphere sphere-pudding"></div><span data-i18n="topping.5">Pudding</span></div>
+      <div class="topping" data-aos="zoom-in" data-aos-delay="350"><div class="t-circle sphere sphere-popping"><b></b><b></b><b></b></div><span data-i18n="topping.6">Popping Boba</span></div>
     </div>
   </section>
 
@@ -194,11 +229,11 @@
   <section class="cta-wrap" id="kontakt">
     <div class="cta" data-aos="zoom-in">
       <span class="cta-dot cta-dot-1"></span><span class="cta-dot cta-dot-2"></span>
-      <h2>Hol dir deinen Bubble Tea</h2>
-      <p>Mo – Sa · 12:30 – 18:30 Uhr · Poststraße 9, 39576 Stendal</p>
+      <h2 data-i18n="cta.title">Hol dir deinen Bubble Tea</h2>
+      <p data-i18n="cta.desc">Mo – Sa · 12:30 – 18:30 Uhr · Poststraße 9, 39576 Stendal</p>
       <div class="cta-btns">
-        <a class="btn btn-cream" href="https://maps.google.com/?q=Poststraße+9+Stendal" target="_blank" rel="noopener">Route öffnen</a>
-        <a class="btn btn-dark" href="https://www.instagram.com/teaat9.stendal/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-cream" href="https://maps.google.com/?q=Poststraße+9+Stendal" target="_blank" rel="noopener" data-i18n="cta.btn.route">Route öffnen</a>
+        <a class="btn btn-dark" href="https://www.instagram.com/teaat9.stendal/" target="_blank" rel="noopener" data-i18n="cta.btn.instagram">Instagram</a>
       </div>
     </div>
   </section>
@@ -208,7 +243,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#top" class="brand"><img src="assets/logo.png" alt="Tea at 9 – Bubble Tea & Co." class="brand-logo footer-logo"></a>
-        <p>Handgemachter Bubble Tea aus der Altmark. Frisch gebrüht. Mit Liebe serviert.</p>
+        <p data-i18n="footer.desc">Handgemachter Bubble Tea aus der Altmark. Frisch gebrüht. Mit Liebe serviert.</p>
         <div class="socials">
           <a href="https://www.instagram.com/teaat9.stendal/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
           <a href="https://www.facebook.com/Teaat9.stendal/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
@@ -217,27 +252,27 @@
       </div>
       <div class="footer-cols">
         <div>
-          <h4>Menü</h4>
-          <a href="#menu">Milk Tea</a>
-          <a href="#menu">Fruchttee</a>
-          <a href="#toppings">Toppings</a>
+          <h4 data-i18n="footer.menu">Menü</h4>
+          <a href="#menu" data-i18n="footer.menu.milk">Milk Tea</a>
+          <a href="#menu" data-i18n="footer.menu.fruit">Fruchttee</a>
+          <a href="#toppings" data-i18n="footer.menu.toppings">Toppings</a>
         </div>
         <div>
-          <h4>Standorte</h4>
+          <h4 data-i18n="footer.locations">Standorte</h4>
           <p>Poststraße 9<br>39576 Stendal</p>
           <p>Magdeburg</p>
         </div>
         <div>
-          <h4>Kontakt</h4>
+          <h4 data-i18n="footer.contact">Kontakt</h4>
           <a href="mailto:teaat9.stendal@gmail.com">teaat9.stendal@gmail.com</a>
           <a href="https://linktr.ee/teaat9" target="_blank" rel="noopener">App &amp; Treueprogramm</a>
-          <p>Mo – Sa · 12:30 – 18:30</p>
+          <p data-i18n="footer.hours">Mo – Sa · 12:30 – 18:30</p>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Tea at 9 · Stendal &amp; Magdeburg</span>
-      <span>#teaat9</span>
+      <span data-i18n="footer.copyright">© 2026 Tea at 9 · Stendal &amp; Magdeburg</span>
+      <span data-i18n="footer.hashtag">#teaat9</span>
     </div>
   </footer>
 
