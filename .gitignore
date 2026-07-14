@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+.claude/
+
+# Raw source media (originals live outside the repo; used copies are in assets/)
+*.mp4
+*.webp
+[0-9]*_*_n.jpg
+[0-9]*_*_n.jpeg
+SnapInsta*
+Hier_ein_erster_Blick*
+logoo.png
+"bubble tea website - Google Search.mp4"
