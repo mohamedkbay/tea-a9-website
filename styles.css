@@ -44,8 +44,8 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.1;color:var(-
 .brand-emblem{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
   background:var(--brown);color:#f7f0e5;font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.1rem}
 .brand-text{font-family:var(--serif);font-weight:700;font-size:1.4rem;color:var(--brown-deep)}
-.brand-logo{width:auto;height:52px;border-radius:14px;display:block}
-.footer-logo{height:78px;border-radius:16px}
+.brand-logo{width:auto;height:56px;display:block}
+.footer-logo{height:92px}
 .nav-links{display:flex;gap:2.3rem}
 .nav-links a{font-size:.92rem;font-weight:500;color:var(--ink);transition:.2s;position:relative}
 .nav-links a:hover{color:var(--brown)}
